@@ -1,0 +1,36 @@
+<div class="container">
+  <div>
+    <h2>Modifier un Livre :</h2>
+  </div>
+  <form (ngSubmit)="updateLivre()">
+    <div hidden class="col-sm-2 col-md-2 col-lg-2"> <label>ID Livre</label>
+      <input readonly type="text"
+        [(ngModel)]="currentLivre.idLivre" name="idLivre" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4"> <label>Titre Livre</label> <input type="text"
+        [(ngModel)]="currentLivre.titreLivre" name="titreLivre" required class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4"> <label>Nom d'auteur</label> <input type="text"
+        [(ngModel)]="currentLivre.auteurLivre" name="auteurLivre" required class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">  <label>Genre </label> <select class="form-control form-control-lg" id="idGen" name="idGen"
+      [(ngModel)]="updatedGenId"> <option *ngFor="let gen of genres" [value]="gen.idGen" >
+      {{gen.nomGen}}
+      </option>
+      </select>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date de publication</label> <input type="date"
+        [ngModel]="currentLivre.datePublication | date: 'yyyy-MM-dd'" (ngModelChange)="currentLivre.datePublication = $event"
+        required name="datePublication" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2"> <label>Prix Livre</label> <input type="number"
+        [(ngModel)]="currentLivre.prixLivre" name="prixLivre" required class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2"> <label>Quantité en stock</label> <input type="number"
+        [(ngModel)]="currentLivre.quantiteStock" name="quantiteStock" required class="form-control">
+    </div>
+    <div class="mt-2"> <button type="submit" class="btn btn-success">Modifier</button>
+    </div>
+  </form>
+</div>

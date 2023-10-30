@@ -1,0 +1,34 @@
+<div class="container">
+  <div>
+    <h2>Ajouter un Livre :</h2>
+  </div>
+  <form (ngSubmit)="addLivre()">
+    <div class="col-sm-2 col-md-2 col-lg-2"> <label>ID Livre</label> <input type="text" [(ngModel)]="newLivre.idLivre"
+        name="idLivre" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4"> <label>Titre Livre</label> <input type="text"
+        [(ngModel)]="newLivre.titreLivre" name="titreLivre" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4"> <label>Nom d'auteur</label> <input type="text"
+        [(ngModel)]="newLivre.auteurLivre" name="auteurLivre" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4"> <label>Genres</label> <select class="form-control form-control-lg"
+        id="idGen" name="idGen" [(ngModel)]="newIdGen">
+        <option *ngFor="let genre of genres" [value]="genre.idGen">
+          {{genre.nomGen}}
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4"> <label>Date de publication</label> <input type="date"
+        [(ngModel)]="newLivre.datePublication" name="datePublication" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2"> <label>Prix Livre</label> <input type="number"
+        [(ngModel)]="newLivre.prixLivre" name="prixLivre" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2"> <label>Quantité en stock</label> <input type="number"
+        [(ngModel)]="newLivre.quantiteStock" name="quantiteStock" class="form-control">
+    </div>
+    <div class="mt-2"> <button type="submit" class="btn btn-success">Ajouter</button>
+    </div>
+  </form>
+</div>

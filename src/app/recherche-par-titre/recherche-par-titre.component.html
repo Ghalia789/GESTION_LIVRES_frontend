@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+          <label>Titre Livre en tapant</label>
+          <input #titreLivre [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+      </form>
+      <table class="table table-striped">
+        <tr>
+          <th>Id</th>
+          <th>Titre</th>
+          <th>Auteur</th>
+          <th>Genre</th>
+          <th>Prix</th>
+          <th>Quantite en stock</th>
+          <th>Date de Publication</th>
+        </tr>
+        <tbody *ngFor="let livre of livres | searchFilter: searchTerm">
+          <tr>
+            <td>{{livre.idLivre}}</td>
+            <td>{{livre.titreLivre}}</td>
+            <td>{{livre.auteurLivre}}</td>
+            <td>{{livre.genre?.nomGen}}</td>
+            <td>{{livre.prixLivre}}</td>
+            <td>{{livre.quantiteStock}}</td>
+            <td>{{livre.datePublication| date:'dd/MM/yyyy'}}</td>
+            <!--<td>
+              <a class="btn btn-danger" (click)="supprimerLivre(livre)">Supprimer</a>
+            </td>
+            <td>
+              <a class="btn btn-success" [routerLink]="'/update-livre/'+livre.idLivre">Modifier</a>
+            </td>-->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
